@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.png?v=5" type="image/png" sizes="32x32" />
+
+  <!-- Security Headers (OWASP A02:2025) -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+
+  <script>
+    (() => {
+      const src = "/favicon.png?v=5";
+      const size = 32;
+      const padding = 0;
+
+      const linkEl = document.querySelector('link[rel="icon"]');
+      if (!linkEl) return;
+
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+
+      img.onload = () => {
+        const tmp = document.createElement("canvas");
+        tmp.width = img.naturalWidth || size;
+        tmp.height = img.naturalHeight || size;
+        const tctx = tmp.getContext("2d");
+        if (!tctx) return;
+
+        tctx.clearRect(0, 0, tmp.width, tmp.height);
+        tctx.drawImage(img, 0, 0);
+
+        const imageData = tctx.getImageData(0, 0, tmp.width, tmp.height);
+        const { data, width, height } = imageData;
+
+        let minX = width,
+          minY = height,
+          maxX = 0,
+          maxY = 0;
+        let found = false;
+        const alphaThreshold = 10;
+
+        for (let y = 0; y < height; y++) {
+          for (let x = 0; x < width; x++) {
+            const a = data[(y * width + x) * 4 + 3];
+            if (a > alphaThreshold) {
+              found = true;
+              if (x < minX) minX = x;
+              if (y < minY) minY = y;
+              if (x > maxX) maxX = x;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
+
+        const out = document.createElement("canvas");
+        out.width = size;
+        out.height = size;
+        const ctx = out.getContext("2d");
+        if (!ctx) return;
+
+        ctx.clearRect(0, 0, size, size);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
+
+        if (!found) {
+          ctx.drawImage(img, 0, 0, size, size);
+          linkEl.setAttribute("href", out.toDataURL("image/png"));
+          return;
+        }
+
+        const cropW = maxX - minX + 1;
+        const cropH = maxY - minY + 1;
+        const scale = (size - padding * 2) / Math.max(cropW, cropH);
+        const drawW = cropW * scale;
+        const drawH = cropH * scale;
+        const dx = (size - drawW) / 2;
+        const dy = (size - drawH) / 2;
+
+        ctx.drawImage(tmp, minX, minY, cropW, cropH, dx, dy, drawW, drawH);
+        linkEl.setAttribute("href", out.toDataURL("image/png"));
+      };
+
+      img.src = src + "&_=" + Date.now();
+    })();
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- PWA Support -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#2B3A67" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Diogo Sabino" />
+
+  <!-- Performance optimization -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical fonts with font-display swap for better performance -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Resource hints for better performance -->
+  <link rel="preload" href="/src/main.tsx" as="script" crossorigin="anonymous">
+  <link rel="modulepreload" href="/src/main.tsx">
+
+  <!-- SEO Meta Tags -->
+  <title>Advogado Especialista</title>
+  <meta name="description"
+    content="Diogo Sabino - Advogado especialista em Direito Previdenciário, Direitos das Pessoas com Deficiência e Direito de Família. Atendimento personalizado em Recife-PE." />
+  <meta name="keywords"
+    content="advogado, direito previdenciário, BPC, LOAS, aposentadoria, direitos PCD, autismo, TEA, direito de família, Recife, Pernambuco" />
+  <meta name="author" content="Diogo Sabino - Advogado" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://diogosabino.adv.br" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diogosabino.adv.br" />
+  <meta property="og:title" content="Diogo Sabino - Advogado Especialista em Direito Previdenciário" />
+  <meta property="og:description"
+    content="Advogado especialista em Direito Previdenciário, Direitos das Pessoas com Deficiência e Direito de Família. Atendimento personalizado em Recife-PE." />
+  <meta property="og:image" content="https://diogosabino.adv.br/og-image.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://diogosabino.adv.br" />
+  <meta name="twitter:title" content="Diogo Sabino - Advogado Especialista em Direito Previdenciário" />
+  <meta name="twitter:description"
+    content="Advogado especialista em Direito Previdenciário, Direitos das Pessoas com Deficiência e Direito de Família." />
+  <meta name="twitter:image" content="https://diogosabino.adv.br/og-image.jpg" />
+
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Diogo Sabino - Advogado",
+      "description": "Advogado especialista em Direito Previdenciário, Direitos das Pessoas com Deficiência e Direito de Família",
+      "url": "https://diogosabino.adv.br",
+      "telephone": "+55-81-95140-546",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Recife",
+        "addressRegion": "PE",
+        "addressCountry": "BR"
+      },
+      "areaServed": ["Recife", "Pernambuco", "Brasil"],
+      "serviceType": ["Direito Previdenciário", "Direitos das Pessoas com Deficiência", "Direito de Família"]
+    }
+    </script>
+
+  <!-- Performance hints -->
+
+  <link rel="prefetch" href="/src/main.tsx">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

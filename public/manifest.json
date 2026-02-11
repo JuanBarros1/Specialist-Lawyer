@@ -1,0 +1,20 @@
+{
+  "name": "Diogo Sabino - Advogado",
+  "short_name": "Diogo Sabino",
+  "description": "Advogado especialista em Direito Previdenciário, Direitos das Pessoas com Deficiência e Direito de Família",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2B3A67",
+  "orientation": "portrait-primary",
+  "categories": ["business", "legal"],
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

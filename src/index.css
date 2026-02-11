@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Luxurious Obsidian Theme */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    /* Card components - Deep Glass */
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Deep Midnight */
+    --primary: 240 10% 12%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 10% 8%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 8%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Accent - Refined Champagne Gold */
+    --accent: 43 52% 55%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border and inputs */
+    --border: 240 10% 12%;
+    --input: 240 10% 12%;
+    --ring: 43 52% 55%;
+
+    /* Law firm specific colors */
+    --law-gold: 43 52% 55%;
+    --law-navy: 240 10% 4%;
+    --law-text: 0 0% 98%;
+    --law-text-light: 240 5% 65%;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(circle at center, hsl(240 10% 8%) 0%, hsl(240 10% 4%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(43 52% 55%) 0%, hsl(43 40% 45%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+
+    /* Shadows */
+    --shadow-elegant: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 30px hsla(43, 52%, 55%, 0.2);
+
+    /* Animations */
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background: hsl(var(--background));
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+
+  /* Typography */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-medium tracking-tighter text-balance;
+  }
+
+  .font-display {
+    font-family: 'Bodoni Moda', serif;
+  }
+
+  .font-body {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+
+  /* Premium Components */
+  /* Premium Components */
+
+
+  .glass-card {
+
+    background: var(--gradient-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    @apply rounded-[2rem] transition-all duration-500;
+  }
+
+  .premium-btn {
+    @apply relative overflow-hidden px-8 py-4 rounded-full font-bold transition-all duration-500 flex items-center justify-center gap-2;
+    background: var(--gradient-accent);
+    color: hsl(var(--accent-foreground));
+  }
+
+  .premium-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px -10px hsla(43, 52%, 55%, 0.4);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+}
+
+/* Hardware Acceleration for Mobile Smoothness */
+.gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+
+/* Utility Classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: 0 0 30px hsla(43, 52%, 55%, 0.2);
+  }
+}
