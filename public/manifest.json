@@ -1,14 +1,17 @@
 {
-  "name": "Diogo Sabino - Advogado",
-  "short_name": "Diogo Sabino",
-  "description": "Advogado especialista em Direito Previdenciário, Direitos das Pessoas com Deficiência e Direito de Família",
+  "name": "Juan Barros - Specialist Lawyer",
+  "short_name": "Juan Barros",
+  "description": "Specialist lawyer in Social Security Law and Disability Rights.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0A0D14",
   "theme_color": "#2B3A67",
   "orientation": "portrait-primary",
-  "categories": ["business", "legal"],
-  "lang": "pt-BR",
+  "categories": [
+    "business",
+    "legal"
+  ],
+  "lang": "en-US",
   "dir": "ltr",
   "icons": [
     {

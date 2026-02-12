@@ -1,73 +1,71 @@
-# Welcome to your Lovable project
+# Specialist Lawyer Portfolio | Juan Barros
 
-## Project info
+![Project Preview](https://img.shields.io/badge/Status-Complete-success?style=for-the-badge&logo=github)
+![Tech](https://img.shields.io/badge/Tech-React%20%7C%20TS%20%7C%20Vite-blue?style=for-the-badge&logo=react)
+![Aesthetic](https://img.shields.io/badge/Design-Premium-gold?style=for-the-badge)
 
-**URL**: https://lovable.dev/projects/7fa9d032-8a57-4013-8647-294b4b9afec7
+A high-end, professional landing page for **Dr. Juan Barros**, a specialist lawyer focused on **Social Security Law** and **Disability Rights** (specifically ASD - Autism and BPC/LOAS).
 
-## How can I edit this code?
+## ✨ Key Features
 
-There are several ways of editing your application.
+- 💎 **Premium Aesthetic**: Modern dark-themed design with "Organic Elegance" and gold accents.
+- 🚀 **Performance First**: Optimized with lazy loading, Suspense, and high-performance image formats (WebP).
+- 🎬 **Fluid Animations**: Smooth entrance effects and interactive elements powered by **GSAP**.
+- 🌍 **Multilingual**: Fully localized into English for international reach.
+- 📱 **Adaptive Design**: pixel-perfect responsiveness from mobile to ultra-wide displays.
+- 🔍 **SEO & Accessibility**: Semantic HTML, structured metadata (JSON-LD), and accessibility best practices.
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7fa9d032-8a57-4013-8647-294b4b9afec7) and start prompting.
+- **Core**: [React 18](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [GSAP](https://greensock.com/gsap/) + [Tailwind Animate](https://github.com/jamiebuilds/tailwindcss-animate)
+- **UI Components**: [Shadcn UI](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [npm](https://www.npmjs.com/) or [bun](https://bun.sh/)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/JuanBarros1/Specialist-Lawyer.git
+   cd advogado-ingles
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Start development server**
+   ```bash
+   npm run dev
+   # or
+   bun dev
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 📦 Deployment
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+The project is ready for deployment on platforms like **Vercel**, **Netlify**, or **GitHub Pages**.
+
+```bash
+npm run build
 ```
+The production-ready files will be in the `dist/` directory.
 
-**Edit a file directly in GitHub**
+## 📄 License
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project is private and for professional use.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7fa9d032-8a57-4013-8647-294b4b9afec7) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Created with ❤️ by Juan Barros.
